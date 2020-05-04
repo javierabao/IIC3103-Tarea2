@@ -30,12 +30,12 @@ intermediate_detail = IntermediateDetail.as_view()
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('', api_root),
-    path('hamburguesa/', hamburger_list, name='hamburger-list'),
-    path('hamburguesa/<int:pk>/', hamburger_detail, name='hamburger-detail'),
-    path('ingrediente/', ingredient_list, name='ingredient-list'),
-    path('ingrediente/<int:pk>/', ingredient_detail, name='ingredient-detail'),
+    path('hamburguesa', hamburger_list, name='hamburger-list'),
+    path('hamburguesa/<int:pk>', hamburger_detail, name='hamburger-detail'),
+    path('ingrediente', ingredient_list, name='ingredient-list'),
+    path('ingrediente/<int:pk>', ingredient_detail, name='ingredient-detail'),
     path(
-        'hamburguesa/<int:pk>/ingrediente/<int:pk2>/',
+        'hamburguesa/<int:pk>/ingrediente/<int:pk2>',
         intermediate_detail,
         name='intermediate-detail'
     ),
