@@ -117,8 +117,8 @@ class IntermediateDetail(APIView):
     def put(self, request, pk, pk2, format=None):
         hamburger = self.get_hamburger(pk=pk)
         ingredient = self.get_ingredient(pk=pk2)
-        if ingredient not in hamburger.ingredients.all():
-            hamburger.ingredients.add(ingredient)
+        if ingredient not in hamburger.ingredientes.all():
+            hamburger.ingredientes.add(ingredient)
         return Response(status=status.HTTP_201_CREATED)
 
     def delete(self, request, pk, pk2, format=None):
