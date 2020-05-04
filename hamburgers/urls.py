@@ -1,6 +1,8 @@
 from django.urls import path
 from .viewsets import (
     HamburgerViewSet,
+    HamburgerDetail,
+    IngredientDetail,
     IngredientViewSet,
     IntermediateDetail,
     api_root
@@ -12,21 +14,14 @@ hamburger_list = HamburgerViewSet.as_view({
     'post': 'create'
 })
 
-hamburger_detail = HamburgerViewSet.as_view({
-    'get': 'retrieve',
-    'patch': 'partial_update',
-    'delete': 'destroy'
-})
+hamburger_detail = HamburgerDetail.as_view()
 
 ingredient_list = IngredientViewSet.as_view({
     'get': 'list',
     'post': 'create'
 })
 
-ingredient_detail = IngredientViewSet.as_view({
-    'get': 'retrieve',
-    'delete': 'destroy'
-})
+ingredient_detail = IngredientDetail.as_view()
 
 intermediate_detail = IntermediateDetail.as_view()
 
