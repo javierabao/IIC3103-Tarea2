@@ -8,7 +8,7 @@ from .models import Hamburger, Ingredient
 class IngredientSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Ingredient
-        fields = ('id', 'name', 'description')
+        fields = ('id', 'nombre', 'descripcion')
 
 
 class HamburgerSerializer(serializers.HyperlinkedModelSerializer):
@@ -16,4 +16,4 @@ class HamburgerSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Hamburger
-        fields = ('id', 'name', 'price', 'description', 'image', 'ingredients')
+        fields = ('id', 'nombre', 'price', 'descripcion', 'imagen', 'ingredientes')

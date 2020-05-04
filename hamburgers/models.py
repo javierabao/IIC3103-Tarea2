@@ -4,19 +4,19 @@ from django.db import models
 
 
 class Ingredient(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField()
+    nombre = models.CharField(max_length=100)
+    descripcion = models.TextField()
 
     def __str__(self):
-        return self.name
+        return self.nombre
 
 
 class Hamburger(models.Model):
-    name = models.CharField(max_length=100)
-    price = models.BigIntegerField(default=0)
-    description = models.TextField()
-    image = models.TextField()
-    ingredients = models.ManyToManyField(Ingredient)
+    nombre = models.CharField(max_length=100)
+    precio = models.BigIntegerField(default=0)
+    descripcion = models.TextField()
+    imagen = models.TextField()
+    ingredientes = models.ManyToManyField(Ingredient)
 
     def __str__(self):
-        return self.name
+        return self.nombre

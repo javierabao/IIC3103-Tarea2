@@ -10,7 +10,7 @@ from .models import Hamburger, Ingredient
 
 
 class HamburgerViewSet(viewsets.ModelViewSet):
-    queryset = Hamburger.objects.all().order_by('name')
+    queryset = Hamburger.objects.all().order_by('nombre')
     serializer_class = HamburgerSerializer
 
 
@@ -34,7 +34,7 @@ class HamburgerDetail(APIView):
     def patch(self, request, pk, format=None):
         hamburger = self.get_object(pk)
 
-        poss_variables = ['name', 'price' 'description', 'image']
+        poss_variables = ['nombre', 'precio' 'descripcion', 'imagen']
         for param in request.data:
             print(param)
             if param not in poss_variables:
@@ -56,7 +56,7 @@ class HamburgerDetail(APIView):
 
 
 class IngredientViewSet(viewsets.ModelViewSet):
-    queryset = Ingredient.objects.all().order_by('name')
+    queryset = Ingredient.objects.all().order_by('nombre')
     serializer_class = IngredientSerializer
 
     def destroy(self, request, *args, **kwargs):
