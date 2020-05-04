@@ -16,4 +16,4 @@ class HamburgerSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Hamburger
-        fields = ('id', 'nombre', 'price', 'descripcion', 'imagen', 'ingredientes')
+        fields = ('id', 'nombre', 'precio', 'descripcion', 'imagen', 'ingredientes')
