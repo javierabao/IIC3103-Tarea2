@@ -10,6 +10,8 @@ flake8 = "*"
 django = "*"
 pillow = "*"
 djangorestframework = "*"
+gunicorn = "*"
+django-heroku = "*"
 
 [requires]
 python_version = "3.6"
