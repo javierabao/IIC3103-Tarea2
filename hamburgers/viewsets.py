@@ -23,7 +23,7 @@ class HamburgerDetail(APIView):
         try:
             return Hamburger.objects.get(pk=pk)
         except Hamburger.DoesNotExist:
-            return 'not instance'
+            return 'doesnt exist'
 
     def get(self, request, pk, format=None):
         hamburger = self.get_object(pk)
