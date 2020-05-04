@@ -129,5 +129,6 @@ STATIC_URL = '/tarea2/static/'
 MEDIA_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'tarea2', 'media')
 MEDIA_URL = '/media/'
 
+APPEND_SLASH = False
 
 django_heroku.settings(locals())
