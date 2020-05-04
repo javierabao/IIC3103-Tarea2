@@ -12,7 +12,7 @@ class IngredientSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class HamburgerSerializer(serializers.HyperlinkedModelSerializer):
-    ingredients = IngredientSerializer(many=True, read_only=True)
+    ingredientes = IngredientSerializer(many=True, read_only=True)
 
     class Meta:
         model = Hamburger
