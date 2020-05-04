@@ -10,6 +10,10 @@ flake8 = "*"
 django = "*"
 pillow = "*"
 djangorestframework = "*"
+python-decouple = "*"
+whitenoise = "*"
+dj-database-url = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.6"
