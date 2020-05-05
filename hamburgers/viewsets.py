@@ -4,13 +4,13 @@ from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from rest_framework.views import APIView
 
-from .serializers import HamburgerSerializer, IngredientSerializer
+from .serializers import HamburgerSerializer, HamburgerListSerializer, IngredientSerializer
 from .models import Hamburger, Ingredient
 
 
 class HamburgerViewSet(viewsets.ModelViewSet):
     queryset = Hamburger.objects.all().order_by('nombre')
-    serializer_class = HamburgerSerializer
+    serializer_class = HamburgerListSerializer
 
 
 class HamburgerDetail(APIView):
@@ -39,7 +39,7 @@ class HamburgerDetail(APIView):
         if hamburger == 'not instance' or hamburger == 'doesnt exist':
             return Response(status=status.HTTP_404_NOT_FOUND)
 
-        poss_variables = ['nombre', 'precio' 'descripcion', 'imagen']
+        poss_variables = ['nombre', 'precio', 'descripcion', 'imagen']
         for param in request.data:
             print(param)
             if param not in poss_variables:
