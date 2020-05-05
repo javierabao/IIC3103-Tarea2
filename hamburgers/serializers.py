@@ -11,8 +11,16 @@ class IngredientSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('id', 'nombre', 'descripcion')
 
 
+class IngredientPathSerializer(serializers.HyperlinkedModelSerializer):
+    path = serializers.HyperlinkedIdentityField(view_name='ingredient-detail')
+
+    class Meta:
+        model = Ingredient
+        fields = ('path',)
+
+
 class HamburgerSerializer(serializers.HyperlinkedModelSerializer):
-    ingredientes = IngredientSerializer(many=True, read_only=True)
+    ingredientes = IngredientPathSerializer(many=True, read_only=True)
 
     class Meta:
         model = Hamburger
