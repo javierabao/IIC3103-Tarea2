@@ -1,6 +1,7 @@
 from rest_framework import status, viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.request import Request
 from rest_framework.reverse import reverse
 from rest_framework.views import APIView
 
@@ -31,7 +32,7 @@ class HamburgerDetail(APIView):
             return Response(status=status.HTTP_400_BAD_REQUEST)
         if hamburger == 'doesnt exist':
             return Response(status=status.HTTP_404_NOT_FOUND)
-        serializer = HamburgerSerializer(hamburger)
+        serializer = HamburgerListSerializer(hamburger)
         return Response(serializer.data)
 
     def patch(self, request, pk, format=None):
@@ -44,10 +45,14 @@ class HamburgerDetail(APIView):
             print(param)
             if param not in poss_variables:
                 return Response(status=status.HTTP_400_BAD_REQUEST)
-        serializer = HamburgerSerializer(
+        serializer_context = {
+            'request': request,
+        }
+        serializer = HamburgerListSerializer(
             hamburger,
             data=request.data,
-            partial=True
+            partial=True,
+            context=serializer_context
         )
         if serializer.is_valid():
             serializer.save()
